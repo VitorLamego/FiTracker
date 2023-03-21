@@ -23,13 +23,15 @@
 	<SectionHeader title="Objetivos Diários" />
 	<CardObjective
 		pathImage={waterBottle}
-		objectiveText="2.2L / 4L"
+		objective={4}
+		actualProgress={2.2}
 		title="Água"
 		isWaterCard={true}
 	/>
 	<CardObjective
 		pathImage={breakImage}
-		objectiveText="3 / 7"
+		objective={7}
+		actualProgress={6}
 		title="Alongamento"
 		isWaterCard={false}
 	/>

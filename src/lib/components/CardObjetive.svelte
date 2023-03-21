@@ -1,12 +1,44 @@
 <script lang="ts">
 	export let pathImage: string;
 	export let title: string;
-	export let objectiveText: string;
+	export let objective: number;
+	export let actualProgress: number;
 	export let isWaterCard: boolean;
+
+	import { onMount } from 'svelte';
+	import type { Animation } from '@ionic/core';
+	import { createAnimation } from '@ionic/core';
+
+	let fillCard: Element;
+	let animation: Animation;
+
+	const getProgressPercentage = () => {
+		let percentage: number = actualProgress / objective;
+		console.log(percentage);
+		if (visualViewport != undefined) return percentage * visualViewport.width * 0.828;
+		else return percentage * 300;
+	};
+
+	onMount(() => {
+		const fillWaterAnimation = createAnimation()
+			.addElement(fillCard)
+			.duration(1000)
+			.keyframes([
+				{ offset: 0, width: '0px' },
+				{ offset: 1, width: getProgressPercentage() + 'px' }
+			]);
+
+		animation = createAnimation().duration(1000).iterations(1).addAnimation([fillWaterAnimation]);
+
+		animation.play();
+	});
 </script>
 
 <div class={isWaterCard ? 'goal-card-water' : 'goal-card-strech'}>
-	<div class={isWaterCard ? 'fill-card fill-color-water' : 'fill-card fill-color-strech'} />
+	<div
+		class={isWaterCard ? 'fill-card fill-color-water' : 'fill-card fill-color-strech'}
+		bind:this={fillCard}
+	/>
 	<div class="content-card">
 		<ion-row class="card-content-row">
 			<ion-row class="title-row">
@@ -15,7 +47,11 @@
 				</div>
 				<p class="card-title">{title}</p>
 			</ion-row>
-			<div class="card-objective">{objectiveText}</div>
+			<div class="card-objective">
+				{isWaterCard
+					? actualProgress + 'L / ' + objective + 'L'
+					: actualProgress + ' / ' + objective}
+			</div>
 		</ion-row>
 	</div>
 </div>
