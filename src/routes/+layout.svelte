@@ -1,4 +1,5 @@
-<script lang='ts'>
+<script lang="ts">
+	import '@fontsource/poppins';
 	import { setupIonicBase } from 'ionic-svelte';
 
 	/* Call Ionic's setup routine */
@@ -46,3 +47,9 @@
 <ion-app>
 	<slot />
 </ion-app>
+
+<style>
+	ion-app {
+		background-color: #363446;
+	}
+</style>

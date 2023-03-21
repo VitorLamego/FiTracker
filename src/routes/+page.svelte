@@ -1,43 +1,89 @@
-<ion-card>
-	<ion-card-header>
-		<ion-card-subtitle>Great success 2!!</ion-card-subtitle>
-		<ion-card-title>FiTracker 2</ion-card-title>
-	</ion-card-header>
+<script>
+	import configIcon from '$lib/images/config.png';
+	import waterBottle from '$lib/images/water.png';
+	import breakImage from '$lib/images/break.png';
+	import SectionHeader from '$lib/components/SectionHeader.svelte';
+	import CardObjective from '$lib/components/CardObjetive.svelte';
+	import '@fontsource/poppins/700.css';
+</script>
 
-	<ion-card-content>
-		Thank you for using this starter. Click buttons below to open these guides (will open in new
-		window). Don't forget to open DevTools to see this app in mobile mode. Happy coding!!!
-	</ion-card-content>
+<div>
+	<div class="home-header">
+		<ion-grid>
+			<ion-row class="header-row">
+				<div class="welcome-box">
+					<ion-text>Olá, </ion-text>
+					<ion-text class="name-text">Vitor!</ion-text>
+				</div>
+				<button class="config-button"><img src={configIcon} alt="Configuration" /></button>
+			</ion-row>
+		</ion-grid>
+	</div>
 
-	<ion-item>
-		<ion-label>Visit Ionic Showcase app with sourceviewer</ion-label>
-		<ion-button href="https://ionicsvelte.firebaseapp.com/" target="_new" fill="outline" slot="end"
-			>View</ion-button
-		>
-	</ion-item>
+	<SectionHeader title="Objetivos Diários" />
+	<CardObjective
+		pathImage={waterBottle}
+		objectiveText="2.2L / 4L"
+		title="Água"
+		isWaterCard={true}
+	/>
+	<CardObjective
+		pathImage={breakImage}
+		objectiveText="3 / 7"
+		title="Alongamento"
+		isWaterCard={false}
+	/>
+	<SectionHeader title="Histórico" />
+</div>
 
-	<ion-item>
-		<ion-label>Visit Ionic component docs</ion-label>
-		<ion-button
-			href="https://ionicframework.com/docs/components"
-			target="_new"
-			fill="outline"
-			slot="end">View</ion-button
-		>
-	</ion-item>
-	<ion-item>
-		<ion-label>Visit Svelte Kit docs</ion-label>
-		<ion-button
-			href="https://kit.svelte.dev/docs/introduction"
-			target="_new"
-			fill="outline"
-			slot="end">View</ion-button
-		>
-	</ion-item>
-	<ion-item>
-		<ion-label>Visit Svelte docs</ion-label>
-		<ion-button href="https://svelte.dev/docs" target="_new" fill="outline" slot="end"
-			>View</ion-button
-		>
-	</ion-item>
-</ion-card>
+<style>
+	/* Home Header */
+	.name-text {
+		font-weight: bold;
+	}
+
+	.header-row {
+		align-items: center;
+		align-content: space-around;
+		justify-content: space-between;
+		margin-left: 7.9vw;
+		margin-right: 7.9vw;
+	}
+
+	.home-header {
+		margin-top: 6.7vh;
+	}
+
+	.welcome-box {
+		text-align: justify;
+		justify-content: center;
+	}
+
+	ion-text {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		font-size: 30px;
+	}
+
+	/* Settings button */
+	.config-button {
+		background-color: #efefef;
+		border-radius: 10px;
+		height: 45px;
+		width: 45px;
+		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			#d6d6e7 0 -3px 0 inset;
+		transition: box-shadow 0.15s, transform 0.15s;
+	}
+
+	.config-button:hover {
+		box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			#d6d6e7 0 -3px 0 inset;
+		transform: translateY(-2px);
+	}
+
+	.config-button:active {
+		box-shadow: #d6d6e7 0 3px 7px inset;
+		transform: translateY(2px);
+	}
+</style>
