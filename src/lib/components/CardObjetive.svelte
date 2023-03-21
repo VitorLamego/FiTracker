@@ -6,15 +6,18 @@
 </script>
 
 <div class={isWaterCard ? 'goal-card-water' : 'goal-card-strech'}>
-	<ion-row class="card-content-row">
-		<ion-row class="title-row">
-			<div class="goal-image-card">
-				<img src={pathImage} alt="Water" class="card-image" />
-			</div>
-			<p class="card-title">{title}</p>
+	<div class={isWaterCard ? 'fill-card fill-color-water' : 'fill-card fill-color-strech'} />
+	<div class="content-card">
+		<ion-row class="card-content-row">
+			<ion-row class="title-row">
+				<div class="goal-image-card">
+					<img src={pathImage} alt="Water" class="card-image" />
+				</div>
+				<p class="card-title">{title}</p>
+			</ion-row>
+			<div class="card-objective">{objectiveText}</div>
 		</ion-row>
-		<div class="card-objective">{objectiveText}</div>
-	</ion-row>
+	</div>
 </div>
 
 <style>
@@ -26,6 +29,7 @@
 		border-radius: 10px;
 		margin-left: 7.9vw;
 		margin-top: 4.2vh;
+		position: relative;
 	}
 
 	.goal-card-strech {
@@ -35,6 +39,7 @@
 		border-radius: 10px;
 		margin-left: 7.9vw;
 		margin-top: 4.2vh;
+		position: relative;
 	}
 
 	.card-image {
@@ -68,5 +73,29 @@
 		margin-left: 2.8vw;
 		margin-right: 5.8vw;
 		height: 8.2vh;
+	}
+
+	.fill-card {
+		height: 8.2vh;
+		top: 0;
+		left: 0;
+		position: absolute;
+		border-radius: 10px;
+	}
+
+	.fill-color-water {
+		background-color: #24abfa;
+		width: 150px;
+	}
+
+	.fill-color-strech {
+		background-color: #de7872;
+		width: 90px;
+	}
+
+	.content-card {
+		position: absolute;
+		top: 0;
+		width: 82.8vw;
 	}
 </style>
