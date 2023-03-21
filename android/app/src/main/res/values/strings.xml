@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FiTracker2</string>
+    <string name="title_activity_main">FiTracker2</string>
+    <string name="package_name">FiTracker2.ionic.io</string>
+    <string name="custom_url_scheme">FiTracker2.ionic.io</string>
+</resources>
