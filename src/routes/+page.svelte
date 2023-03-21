@@ -1,13 +1,12 @@
-
-  <ion-card>
+<ion-card>
 	<ion-card-header>
-		<ion-card-subtitle>Great success!!</ion-card-subtitle>
-		<ion-card-title>Welcome to your app!</ion-card-title>
+		<ion-card-subtitle>Great success 2!!</ion-card-subtitle>
+		<ion-card-title>FiTracker 2</ion-card-title>
 	</ion-card-header>
 
 	<ion-card-content>
-		Thank you for using this starter. Click buttons below to open these guides (will
-		open in new window). Don't forget to open DevTools to see this app in mobile mode. Happy coding!!!
+		Thank you for using this starter. Click buttons below to open these guides (will open in new
+		window). Don't forget to open DevTools to see this app in mobile mode. Happy coding!!!
 	</ion-card-content>
 
 	<ion-item>
@@ -42,5 +41,3 @@
 		>
 	</ion-item>
 </ion-card>
-
-  
