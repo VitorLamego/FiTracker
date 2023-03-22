@@ -36,9 +36,19 @@
 		isWaterCard={false}
 	/>
 	<SectionHeader title="Histórico" />
+	<div class="historic-container" />
 </div>
 
 <style>
+	.historic-container {
+		background-color: rgba(177, 151, 252, 0.19);
+		display: flex;
+		height: 100%;
+		margin-top: 4vh;
+		border-top-left-radius: 40px;
+		border-top-right-radius: 40px;
+		box-shadow: 0px -4px 4px rgba(255, 255, 255, 0.25);
+	}
 	/* Home Header */
 	.name-text {
 		font-weight: bold;
