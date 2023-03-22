@@ -2,8 +2,8 @@
 	import configIcon from '$lib/images/config.png';
 	import waterBottle from '$lib/images/water.png';
 	import breakImage from '$lib/images/break.png';
-	import SectionHeader from '$lib/components/SectionHeader.svelte';
-	import CardObjective from '$lib/components/CardObjetive.svelte';
+	import SectionHeader from '$lib/components/home/SectionHeader.svelte';
+	import CardObjective from '$lib/components/home/CardObjetive.svelte';
 	import '@fontsource/poppins/700.css';
 </script>
 

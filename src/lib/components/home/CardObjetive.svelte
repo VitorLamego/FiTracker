@@ -1,13 +1,14 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import type { Animation } from '@ionic/core';
+	import { createAnimation } from '@ionic/core';
+	import { goto } from '$app/navigation';
+
 	export let pathImage: string;
 	export let title: string;
 	export let objective: number;
 	export let actualProgress: number;
 	export let isWaterCard: boolean;
-
-	import { onMount } from 'svelte';
-	import type { Animation } from '@ionic/core';
-	import { createAnimation } from '@ionic/core';
 
 	let fillCard: Element;
 	let animation: Animation;
@@ -17,6 +18,10 @@
 		console.log(percentage);
 		if (visualViewport != undefined) return percentage * visualViewport.width * 0.828;
 		else return percentage * 300;
+	};
+
+	const routePage = () => {
+		goto('/water-page', { replaceState: true });
 	};
 
 	onMount(() => {
@@ -34,27 +39,29 @@
 	});
 </script>
 
-<div class={isWaterCard ? 'goal-card-water' : 'goal-card-strech'}>
-	<div
-		class={isWaterCard ? 'fill-card fill-color-water' : 'fill-card fill-color-strech'}
-		bind:this={fillCard}
-	/>
-	<div class="content-card">
-		<ion-row class="card-content-row">
-			<ion-row class="title-row">
-				<div class="goal-image-card">
-					<img src={pathImage} alt="Water" class="card-image" />
+<button on:click={routePage}>
+	<div class={isWaterCard ? 'goal-card-water' : 'goal-card-strech'}>
+		<div
+			class={isWaterCard ? 'fill-card fill-color-water' : 'fill-card fill-color-strech'}
+			bind:this={fillCard}
+		/>
+		<div class="content-card">
+			<ion-row class="card-content-row">
+				<ion-row class="title-row">
+					<div class="goal-image-card">
+						<img src={pathImage} alt="Water" class="card-image" />
+					</div>
+					<p class="card-title">{title}</p>
+				</ion-row>
+				<div class="card-objective">
+					{isWaterCard
+						? actualProgress + 'L / ' + objective + 'L'
+						: actualProgress + ' / ' + objective}
 				</div>
-				<p class="card-title">{title}</p>
 			</ion-row>
-			<div class="card-objective">
-				{isWaterCard
-					? actualProgress + 'L / ' + objective + 'L'
-					: actualProgress + ' / ' + objective}
-			</div>
-		</ion-row>
+		</div>
 	</div>
-</div>
+</button>
 
 <style>
 	/* Goal Card */
@@ -62,20 +69,30 @@
 		width: 82.8vw;
 		height: 8.2vh;
 		background-color: #c9eafc;
+		box-shadow: 2px 2px 4px #1229f5;
 		border-radius: 10px;
 		margin-left: 7.9vw;
 		margin-top: 4.2vh;
 		position: relative;
 	}
 
+	.goal-card-water:active {
+		transform: translateY(2px);
+	}
+
 	.goal-card-strech {
 		width: 82.8vw;
 		height: 8.2vh;
 		background-color: #fcccc9;
+		box-shadow: 2px 2px 4px #f51212;
 		border-radius: 10px;
 		margin-left: 7.9vw;
 		margin-top: 4.2vh;
 		position: relative;
+	}
+
+	.goal-card-strech:active {
+		transform: translateY(2px);
 	}
 
 	.card-image {
@@ -133,5 +150,10 @@
 		position: absolute;
 		top: 0;
 		width: 82.8vw;
+	}
+
+	button {
+		background-color: transparent;
+		color: black;
 	}
 </style>
