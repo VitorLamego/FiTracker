@@ -77,19 +77,44 @@
 		</ion-grid>
 		<ion-grid>
 			<ion-row class="buttons-row">
-				<button class="add-button" on:click={() => (addQuantity = false)}>-</button>
+				<button
+					class={addQuantity ? 'math-buttons' : 'math-buttons clicked'}
+					on:click={() => (addQuantity = false)}>-</button
+				>
 				<ion-row class="row-add-buttons">
 					<button class="add-button" on:click={() => addWater(0.1)}>0.1L</button>
 					<button class="add-button" on:click={() => addWater(0.5)}>0.5L</button>
 					<button class="add-button" on:click={() => addWater(1)}>1L</button>
 				</ion-row>
-				<button class="add-button" on:click={() => (addQuantity = true)}>+</button>
+				<button
+					class={addQuantity ? 'math-buttons clicked' : 'math-buttons'}
+					on:click={() => (addQuantity = true)}>+</button
+				>
 			</ion-row>
 		</ion-grid>
 	</div>
 </div>
 
 <style>
+	.math-buttons {
+		background-color: #efefef;
+		border-radius: 10px;
+		height: 45px;
+		width: 45px;
+		transition: box-shadow 0.15s, transform 0.15s;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 45px;
+		font-weight: 700;
+		font-family: 'Poppins', sans-serif;
+		font-size: 16px;
+		color: black;
+	}
+
+	.clicked {
+		box-shadow: inset 2px 4px 4px rgba(0, 0, 0, 0.49);
+	}
+
 	.buttons-row {
 		justify-content: space-between;
 		margin-left: 7.6vw;
