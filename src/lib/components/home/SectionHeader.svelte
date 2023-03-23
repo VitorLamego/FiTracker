@@ -9,7 +9,6 @@
 		width: 44.6vw;
 		height: 2.8vh;
 		background-color: white;
-		margin-top: 6.2vh;
 		margin-left: 7.9vw;
 		border-radius: 5px;
 		text-align: center;

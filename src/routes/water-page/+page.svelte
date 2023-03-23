@@ -1,19 +1,19 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { Animation } from '@ionic/core';
-	import { createAnimation } from '@ionic/core';
+
 	import configIcon from '$lib/images/config.png';
 	import backButton from '$lib/images/back-button.png';
 	import waterBottle from '$lib/images/water-bottle.svg';
-	import { goto } from '$app/navigation';
-
 	import ProgressBox from '$lib/components/objective-page/ProgressBox.svelte';
+
+	import { goto } from '$app/navigation';
 
 	import '@fontsource/poppins/700.css';
 	import '@fontsource/poppins/600.css';
 
+	import HistoricCard from './components/HistoricCard.svelte';
+
 	let pieChart: Element;
-	let animation: Animation;
 	let actualProgress: number = 0.0;
 	let addQuantity: boolean = true;
 
@@ -29,26 +29,6 @@
 		}
 		actualProgress.toFixed(2);
 	}
-
-	onMount(() => {
-		const pieAnimation = createAnimation()
-			.addElement(pieChart)
-			.duration(1000)
-			.keyframes([
-				{
-					offset: 0,
-					p: 0
-				},
-				{
-					offset: 1,
-					p: 50
-				}
-			]);
-
-		animation = createAnimation().duration(1000).iterations(Infinity).addAnimation([pieAnimation]);
-
-		animation.play();
-	});
 </script>
 
 <div class="content-box">
@@ -61,41 +41,84 @@
 				<button class="config-button"><img src={configIcon} alt="Configuration" /></button>
 			</ion-row>
 		</ion-grid>
-		<div class="chart-box">
-			<div class="objective-image">
-				<img src={waterBottle} alt="Configuration" />
-			</div>
-			<div class="pie animate" style="--c:#62D8F1" bind:this={pieChart} />
-		</div>
+	</div>
 
-		<p class="page-title">Consumo de água</p>
-		<ion-grid>
-			<ion-row class="progress-row">
-				<ProgressBox boxContent={actualProgress.toFixed(1)} label="Consumo" />
-				<ProgressBox boxContent="4" label="Objetivo" />
+	<div class="chart-box">
+		<div class="objective-image">
+			<img src={waterBottle} alt="Configuration" />
+		</div>
+		<div class="pie animate" style="--c:#62D8F1" bind:this={pieChart} />
+	</div>
+
+	<p class="page-title">Consumo de água</p>
+	<ion-grid>
+		<ion-row class="progress-row">
+			<ProgressBox boxContent={actualProgress.toFixed(1)} label="Consumo" />
+			<ProgressBox boxContent="4" label="Objetivo" />
+		</ion-row>
+	</ion-grid>
+	<ion-grid>
+		<ion-row class="buttons-row">
+			<button
+				class={addQuantity ? 'math-buttons' : 'math-buttons clicked'}
+				on:click={() => (addQuantity = false)}>-</button
+			>
+			<ion-row class="row-add-buttons">
+				<button class="add-button" on:click={() => addWater(0.1)}>0.1L</button>
+				<button class="add-button" on:click={() => addWater(0.5)}>0.5L</button>
+				<button class="add-button" on:click={() => addWater(1)}>1L</button>
 			</ion-row>
-		</ion-grid>
-		<ion-grid>
-			<ion-row class="buttons-row">
-				<button
-					class={addQuantity ? 'math-buttons' : 'math-buttons clicked'}
-					on:click={() => (addQuantity = false)}>-</button
-				>
-				<ion-row class="row-add-buttons">
-					<button class="add-button" on:click={() => addWater(0.1)}>0.1L</button>
-					<button class="add-button" on:click={() => addWater(0.5)}>0.5L</button>
-					<button class="add-button" on:click={() => addWater(1)}>1L</button>
-				</ion-row>
-				<button
-					class={addQuantity ? 'math-buttons clicked' : 'math-buttons'}
-					on:click={() => (addQuantity = true)}>+</button
-				>
-			</ion-row>
-		</ion-grid>
+			<button
+				class={addQuantity ? 'math-buttons clicked' : 'math-buttons'}
+				on:click={() => (addQuantity = true)}>+</button
+			>
+		</ion-row>
+	</ion-grid>
+
+	<div class="historic-container">
+		<div class="section-header">Histórico</div>
+		<div class="scroll-container">
+			<HistoricCard />
+			<HistoricCard />
+			<HistoricCard />
+			<HistoricCard />
+			<HistoricCard />
+		</div>
 	</div>
 </div>
 
 <style>
+	.scroll-container {
+		height: 24vh;
+		overflow: scroll;
+	}
+
+	.section-header {
+		width: 44.6vw;
+		height: 2.8vh;
+		background-color: white;
+		border-radius: 5px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 2.8vh;
+		display: inline-block;
+		color: black;
+		font-weight: 700;
+		font-size: 14px;
+		margin-bottom: 1.9vh;
+	}
+
+	.historic-container {
+		width: 100vw;
+		height: 33.4vh;
+		background-color: #b197fc19;
+		border-top-right-radius: 40px;
+		border-top-left-radius: 40px;
+		margin-top: 3vh;
+		box-shadow: 0px -4px 4px #ffffff25;
+		text-align: center;
+		padding-top: 3vh;
+	}
 	.math-buttons {
 		background-color: #efefef;
 		border-radius: 10px;
@@ -173,7 +196,7 @@
 
 	.chart-box {
 		position: relative;
-		margin-top: 8.1vh;
+		margin-top: 2.9vh;
 		text-align: center;
 		width: 100vw;
 		height: 24vh;

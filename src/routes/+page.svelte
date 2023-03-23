@@ -21,25 +21,30 @@
 	</div>
 
 	<SectionHeader title="Objetivos Diários" />
-	<CardObjective
-		pathImage={waterBottle}
-		objective={4}
-		actualProgress={2.2}
-		title="Água"
-		isWaterCard={true}
-	/>
-	<CardObjective
-		pathImage={breakImage}
-		objective={7}
-		actualProgress={6}
-		title="Alongamento"
-		isWaterCard={false}
-	/>
+	<div class="cards-container">
+		<CardObjective
+			pathImage={waterBottle}
+			objective={4}
+			actualProgress={2.2}
+			title="Água"
+			isWaterCard={true}
+		/>
+		<CardObjective
+			pathImage={breakImage}
+			objective={7}
+			actualProgress={6}
+			title="Alongamento"
+			isWaterCard={false}
+		/>
+	</div>
 	<SectionHeader title="Histórico" />
 	<div class="historic-container" />
 </div>
 
 <style>
+	.cards-container {
+		margin-bottom: 6.2vh;
+	}
 	.historic-container {
 		background-color: rgba(177, 151, 252, 0.19);
 		display: flex;
@@ -64,6 +69,7 @@
 
 	.home-header {
 		margin-top: 6.7vh;
+		margin-bottom: 6.2vh;
 	}
 
 	.welcome-box {
