@@ -1,10 +1,17 @@
-<script>
+<script lang="ts">
 	import configIcon from '$lib/images/config.png';
 	import waterBottle from '$lib/images/water.png';
 	import breakImage from '$lib/images/break.png';
 	import SectionHeader from '$lib/components/home/SectionHeader.svelte';
 	import CardObjective from '$lib/components/home/CardObjetive.svelte';
+
+	import { waterProgress } from '$lib/store';
+
 	import '@fontsource/poppins/700.css';
+
+	let waterQuantity: number = 0.0;
+
+	waterProgress.subscribe((value) => (waterQuantity = value));
 </script>
 
 <div>
@@ -13,7 +20,7 @@
 			<ion-row class="header-row">
 				<div class="welcome-box">
 					<ion-text>Olá, </ion-text>
-					<ion-text class="name-text">Vitor!</ion-text>
+					<ion-text class="name-text">Carla!</ion-text>
 				</div>
 				<button class="config-button"><img src={configIcon} alt="Configuration" /></button>
 			</ion-row>
@@ -25,7 +32,7 @@
 		<CardObjective
 			pathImage={waterBottle}
 			objective={4}
-			actualProgress={2.2}
+			actualProgress={waterQuantity}
 			title="Água"
 			isWaterCard={true}
 		/>

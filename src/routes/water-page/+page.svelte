@@ -12,20 +12,24 @@
 	import '@fontsource/poppins/600.css';
 
 	import HistoricCard from './components/HistoricCard.svelte';
+	import { WaterController } from './water-page';
+	import { waterProgress } from '$lib/store';
 
 	let pieChart: Element;
 	let actualProgress: number = 0.0;
-	let addQuantity: boolean = true;
+
+	waterProgress.subscribe((value) => (actualProgress = value));
 
 	const backRoute = () => {
 		goto('/');
 	};
 
 	function addWater(quantity: number) {
-		if (addQuantity) actualProgress += quantity;
+		if (WaterController.addQuantity) waterProgress.update((n) => n + quantity);
 		else {
 			actualProgress -= quantity;
-			if (actualProgress < 0) actualProgress = 0;
+			waterProgress.update((n) => n - quantity);
+			if (actualProgress < 0) waterProgress.set(0);
 		}
 		actualProgress.toFixed(2);
 	}
@@ -60,8 +64,8 @@
 	<ion-grid>
 		<ion-row class="buttons-row">
 			<button
-				class={addQuantity ? 'math-buttons' : 'math-buttons clicked'}
-				on:click={() => (addQuantity = false)}>-</button
+				class={WaterController.addQuantity ? 'math-buttons' : 'math-buttons clicked'}
+				on:click={() => (WaterController.addQuantity = false)}>-</button
 			>
 			<ion-row class="row-add-buttons">
 				<button class="add-button" on:click={() => addWater(0.1)}>0.1L</button>
@@ -69,8 +73,8 @@
 				<button class="add-button" on:click={() => addWater(1)}>1L</button>
 			</ion-row>
 			<button
-				class={addQuantity ? 'math-buttons clicked' : 'math-buttons'}
-				on:click={() => (addQuantity = true)}>+</button
+				class={WaterController.addQuantity ? 'math-buttons clicked' : 'math-buttons'}
+				on:click={() => (WaterController.addQuantity = true)}>+</button
 			>
 		</ion-row>
 	</ion-grid>

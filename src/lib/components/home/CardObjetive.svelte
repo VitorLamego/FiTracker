@@ -16,6 +16,7 @@
 	const getProgressPercentage = () => {
 		let percentage: number = actualProgress / objective;
 		console.log(percentage);
+		if (percentage > 1) percentage = 1;
 		if (visualViewport != undefined) return percentage * visualViewport.width * 0.828;
 		else return percentage * 300;
 	};
@@ -55,7 +56,7 @@
 				</ion-row>
 				<div class="card-objective">
 					{isWaterCard
-						? actualProgress + 'L / ' + objective + 'L'
+						? actualProgress.toFixed(1) + 'L / ' + objective + 'L'
 						: actualProgress + ' / ' + objective}
 				</div>
 			</ion-row>
