@@ -22,7 +22,8 @@
 	};
 
 	const routePage = () => {
-		goto('/water-page', { replaceState: true });
+		if (isWaterCard) goto('/water-page', { replaceState: true });
+		else goto('/break-page', { replaceState: true });
 	};
 
 	onMount(() => {

@@ -1,14 +1,27 @@
-<script>
+<script lang="ts">
 	import HistoricCard from '../../../routes/water-page/components/HistoricCard.svelte';
 	import { historicList } from '$lib/historic';
+	import HistoricCardBreak from '../../../routes/break-page/components/HistoricCardBreak.svelte';
+
+	export let isWaterHistoric: boolean;
 </script>
 
 <div class="historic-container">
 	<div class="section-header">Histórico</div>
 	<div class="scroll-container">
-		{#each historicList as day}
-			<HistoricCard data={day.date} dayProgress={day.water} percentage={day.waterPercentage} />
-		{/each}
+		{#if isWaterHistoric}
+			{#each historicList as day}
+				<HistoricCard data={day.date} dayProgress={day.water} percentage={day.waterPercentage} />
+			{/each}
+		{:else}
+			{#each historicList as day}
+				<HistoricCardBreak
+					data={day.date}
+					dayProgress={day.breaks}
+					percentage={day.breaksPercentage}
+				/>
+			{/each}
+		{/if}
 	</div>
 </div>
 

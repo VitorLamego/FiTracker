@@ -11,10 +11,10 @@
 
 	import { waterProgress } from '$lib/store';
 	import { WaterController } from './water-page';
-	import ActualProgress from './components/ActualProgress.svelte';
+	import ActualProgress from '../../lib/components/objectives-page/ActualProgress.svelte';
 
 	let actualProgress: number = 0.0;
-	let objective: number = 4;
+	export let objective: number = 4;
 
 	const controller = new WaterController();
 
@@ -23,10 +23,10 @@
 
 <div class="content-box">
 	<Header />
-	<PieChart focusImage={waterBottle} {actualProgress} {objective} />
-	<ActualProgress {actualProgress} {objective} />
+	<PieChart focusImage={waterBottle} {actualProgress} {objective} color="62d8F1" />
+	<ActualProgress {actualProgress} {objective} title="Consumo de água" />
 	<ButtonsRow {actualProgress} {controller} />
-	<HistoricContainer />
+	<HistoricContainer isWaterHistoric={true} />
 </div>
 
 <style>

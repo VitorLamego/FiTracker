@@ -2,13 +2,14 @@
 	export let focusImage: string;
 	export let actualProgress: number;
 	export let objective: number;
+	export let color: string;
 </script>
 
 <div class="chart-box">
 	<div class="objective-image">
 		<img src={focusImage} alt="Configuration" />
 	</div>
-	<div class="pie animate" style="--c:#62D8F1;--p:{(actualProgress / objective) * 100}" />
+	<div class="pie animate" style="--c:#{color};--p:{(actualProgress / objective) * 100}" />
 </div>
 
 <style>

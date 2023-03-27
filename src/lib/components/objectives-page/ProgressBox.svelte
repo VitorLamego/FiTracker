@@ -1,10 +1,12 @@
 <script lang="ts">
 	export let boxContent: string;
 	export let label: String;
+
+	export let isWater: boolean = true;
 </script>
 
 <div class="progress-box">
-	<div class="number-box">{boxContent + 'L'}</div>
+	<div class="number-box">{isWater ? boxContent + 'L' : boxContent}</div>
 	<div class="card-label">{label}</div>
 </div>
 
