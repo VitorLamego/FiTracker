@@ -5,13 +5,15 @@
 	import SectionHeader from '$lib/components/home/SectionHeader.svelte';
 	import CardObjective from '$lib/components/home/CardObjetive.svelte';
 
-	import { waterProgress } from '$lib/store';
+	import { waterProgress, waterObjective } from '$lib/store';
 
 	import '@fontsource/poppins/700.css';
 
 	let waterQuantity: number = 0.0;
+	let _waterObjective: number;
 
 	waterProgress.subscribe((value) => (waterQuantity = value));
+	waterObjective.subscribe((value) => (_waterObjective = value));
 </script>
 
 <div>
@@ -31,7 +33,7 @@
 	<div class="cards-container">
 		<CardObjective
 			pathImage={waterBottle}
-			objective={4}
+			objective={_waterObjective}
 			actualProgress={waterQuantity}
 			title="Água"
 			isWaterCard={true}

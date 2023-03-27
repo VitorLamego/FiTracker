@@ -1,17 +1,24 @@
-<script>
+<script lang="ts">
+	import '@fontsource/poppins/700.css';
+	import '@fontsource/poppins/600.css';
+
 	import waterBottle from '$lib/images/water-bottle.svg';
+
+	export let data: string = '-';
+	export let dayProgress: number = 0;
+	export let percentage: string = '-';
 </script>
 
 <div class="card-historic">
 	<ion-row class="card-content">
-		<div class="data-container">13/02</div>
+		<div class="data-container">{data}</div>
 		<div class="quantity-container">
 			<ion-row>
 				<div class="card-image"><img src={waterBottle} alt="Water" /></div>
-				<div class="card-text">2.8 Litros</div>
+				<div class="card-text">{dayProgress + ' Litros'}</div>
 			</ion-row>
 		</div>
-		<div class="card-percentage">89%</div>
+		<div class="card-percentage">{percentage}</div>
 	</ion-row>
 </div>
 

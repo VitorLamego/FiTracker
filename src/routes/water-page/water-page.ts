@@ -1,3 +1,3 @@
 export class WaterController {
-    static addQuantity: boolean = true;
+    addQuantity: boolean = true;
 }
