@@ -7,6 +7,10 @@
 	const backRoute = () => {
 		goto('/');
 	};
+
+	const configRoute = () => {
+		goto('/config');
+	};
 </script>
 
 <div class="home-header">
@@ -14,7 +18,9 @@
 		<ion-row class="header-row">
 			<button class="back-button" on:click={backRoute}><img src={backButton} alt="Back" /></button>
 			<ion-text class="name-text">FiTracker</ion-text>
-			<button class="config-button"><img src={configIcon} alt="Configuration" /></button>
+			<button class="config-button" on:click={configRoute}
+				><img src={configIcon} alt="Configuration" /></button
+			>
 		</ion-row>
 	</ion-grid>
 </div>

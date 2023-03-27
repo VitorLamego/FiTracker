@@ -2,6 +2,12 @@
 	import '@fontsource/poppins/700.css';
 
 	import configIcon from '$lib/images/config.png';
+
+	import { goto } from '$app/navigation';
+
+	const route = () => {
+		goto('/config', { replaceState: true });
+	};
 </script>
 
 <div class="home-header">
@@ -11,7 +17,9 @@
 				<ion-text>Olá, </ion-text>
 				<ion-text class="name-text">Carla!</ion-text>
 			</div>
-			<button class="config-button"><img src={configIcon} alt="Configuration" /></button>
+			<button class="config-button" on:click={route}
+				><img src={configIcon} alt="Configuration" /></button
+			>
 		</ion-row>
 	</ion-grid>
 </div>
