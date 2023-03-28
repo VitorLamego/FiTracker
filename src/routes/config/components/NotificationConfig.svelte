@@ -2,6 +2,10 @@
 	import '@fontsource/poppins/700.css';
 
 	import { automaticSuggestion } from '$lib/store';
+
+	function onSuggestionClicked() {
+		automaticSuggestion.update((value) => !value);
+	}
 </script>
 
 <ion-row class="notification-row">
@@ -13,7 +17,11 @@
 <ion-row class="suggestion-row">
 	<div class="text">Sugestão automática</div>
 
-	<ion-toggle enable-on-off-labels={true} checked={$automaticSuggestion} />
+	<ion-toggle
+		enable-on-off-labels={true}
+		checked={$automaticSuggestion}
+		on:ionChange={onSuggestionClicked}
+	/>
 </ion-row>
 
 <style>
