@@ -9,16 +9,17 @@
 	import HistoricContainer from '../../lib/components/objectives-page/HistoricContainer.svelte';
 	import Header from '$lib/components/objectives-page/Header.svelte';
 
-	import { waterProgress } from '$lib/store';
+	import { waterProgress, waterObjective } from '$lib/store';
 	import { WaterController } from './water-page';
 	import ActualProgress from '../../lib/components/objectives-page/ActualProgress.svelte';
 
-	let actualProgress: number = 0.0;
-	export let objective: number = 4;
+	let actualProgress: number;
+	export let objective: number;
 
 	const controller = new WaterController();
 
 	waterProgress.subscribe((value) => (actualProgress = value));
+	waterObjective.subscribe((value) => (objective = value));
 </script>
 
 <div class="content-box">
