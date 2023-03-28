@@ -34,6 +34,20 @@ let historicList = [
         "breaks": 5,
         "breaksPercentage": "67.4%"
     },
+    {
+        "date": "08/02",
+        "water": 2.9,
+        "waterPercentage": "53%",
+        "breaks": 7,
+        "breaksPercentage": "89.2%"
+    },
+    {
+        "date": "07/02",
+        "water": 1.7,
+        "waterPercentage": "43%",
+        "breaks": 5,
+        "breaksPercentage": "67.4%"
+    },
 ];
 
 export { historicList }

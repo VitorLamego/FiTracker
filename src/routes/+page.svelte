@@ -7,6 +7,8 @@
 	import { waterProgress, waterObjective, breakObjective, breakProgress } from '$lib/store';
 
 	import HomeHeader from '$lib/components/home/HomeHeader.svelte';
+	import { historicList } from '$lib/historic';
+	import HistoricData from '$lib/components/home/HistoricData.svelte';
 
 	let waterQuantity: number;
 	let _waterObjective: number;
@@ -39,20 +41,11 @@
 		/>
 	</div>
 	<SectionHeader title="Histórico" />
-	<div class="historic-container" />
+	<HistoricData />
 </div>
 
 <style>
 	.cards-container {
 		margin-bottom: 6.2vh;
-	}
-	.historic-container {
-		background-color: rgba(177, 151, 252, 0.19);
-		display: flex;
-		height: 100%;
-		margin-top: 4vh;
-		border-top-left-radius: 40px;
-		border-top-right-radius: 40px;
-		box-shadow: 0px -4px 4px rgba(255, 255, 255, 0.25);
 	}
 </style>
