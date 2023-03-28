@@ -13,6 +13,7 @@
 	},
 	"devDependencies": {
 		"@capacitor/cli": "^4.7.1",
+		"@imask/svelte": "^6.4.3",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"@sveltejs/kit": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -38,6 +39,7 @@
 		"@ionic/core": "^6.6.0",
 		"dotenv": "^16.0.3",
 		"ionic-svelte": "^0.5.72",
-		"ionicons": "^7.0.0"
+		"ionicons": "^7.0.0",
+		"svelte-imask": "^1.2.0"
 	}
 }

@@ -5,7 +5,8 @@
 			"./node_modules/ionic-svelte"
 		],
 		"types": [
-			"ionic-svelte"
+			"ionic-svelte",
+			"./typings"
 		],
 		"allowJs": true,
 		"checkJs": true,
