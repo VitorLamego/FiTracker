@@ -14,7 +14,7 @@
 		<div class="data-container">{data}</div>
 		<div class="quantity-container">
 			<ion-row>
-				<div class="card-image"><img src={waterBottle} alt="Water" /></div>
+				<img src={waterBottle} alt="Water" class="card-image" />
 				<div class="card-text">{dayProgress + ' Litros'}</div>
 			</ion-row>
 		</div>
@@ -34,7 +34,7 @@
 
 	.card-image {
 		width: 9vw;
-		height: 9vw;
+		height: 3.4vh;
 		margin-right: 10px;
 		position: absolute;
 		top: 50%;

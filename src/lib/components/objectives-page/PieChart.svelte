@@ -43,9 +43,9 @@
 		--c: darkred;
 
 		width: 47.9vw;
-		aspect-ratio: 1;
+		height: 22.1vh;
 		position: relative;
-		display: inline-grid;
+		display: inline-block;
 		margin: 5px;
 		font-weight: bold;
 		font-family: sans-serif;
