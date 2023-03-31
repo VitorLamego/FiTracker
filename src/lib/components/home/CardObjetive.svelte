@@ -15,7 +15,6 @@
 
 	const getProgressPercentage = () => {
 		let percentage: number = actualProgress / objective;
-		console.log(percentage);
 		if (percentage > 1) percentage = 1;
 		if (visualViewport != undefined) return percentage * visualViewport.width * 0.828;
 		else return percentage * 300;

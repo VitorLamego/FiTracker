@@ -1,6 +1,9 @@
 <script lang="ts">
 	import '@fontsource/poppins';
 	import { setupIonicBase } from 'ionic-svelte';
+	import { NotificationDisplay } from '@beyonk/svelte-notifications';
+	import { SvelteToast } from '@zerodevx/svelte-toast';
+	import Toast from '$lib/components/Toast.svelte';
 
 	/* Call Ionic's setup routine */
 	setupIonicBase();
@@ -45,6 +48,8 @@
 </script>
 
 <ion-app>
+	<Toast />
+
 	<slot />
 </ion-app>
 

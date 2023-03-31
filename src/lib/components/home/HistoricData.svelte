@@ -22,7 +22,6 @@
 	});
 
 	function updateHistoric(addDay: boolean) {
-		console.log(historicIndex);
 		if (addDay && historicIndex != 0) historicIndex--;
 		else if (!addDay && historicIndex != historicLenght - 1) historicIndex++;
 		else return;

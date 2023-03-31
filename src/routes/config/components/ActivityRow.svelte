@@ -35,10 +35,8 @@
 			if (isStartHour) {
 				if (startFinalTime > finishFinalTime) {
 					startHourInput.value = preStartHourValue;
-					console.log('Star Hour: Alteração não realizada');
 					return;
 				}
-				console.log('Star Hour: Alteração realizada');
 
 				startHour.set(startContent);
 			} else {

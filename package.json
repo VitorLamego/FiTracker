@@ -12,12 +12,14 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@beyonk/svelte-notifications": "^4.2.0",
 		"@capacitor/cli": "^4.7.1",
 		"@imask/svelte": "^6.4.3",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"@sveltejs/kit": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
+		"@zerodevx/svelte-toast": "^0.9.3",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -38,6 +40,8 @@
 		"@capacitor/push-notifications": "^4.1.2",
 		"@fontsource/poppins": "^4.5.10",
 		"@ionic/core": "^6.6.0",
+		"@types/cron": "^2.0.1",
+		"cron": "^2.3.0",
 		"dotenv": "^16.0.3",
 		"ionic-svelte": "^0.5.72",
 		"ionicons": "^7.0.0",

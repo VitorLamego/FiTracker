@@ -4,11 +4,17 @@
 	import SectionHeader from '$lib/components/home/SectionHeader.svelte';
 	import CardObjective from '$lib/components/home/CardObjetive.svelte';
 
-	import { waterProgress, waterObjective, breakObjective, breakProgress } from '$lib/store';
+	import {
+		waterProgress,
+		waterObjective,
+		breakObjective,
+		breakProgress,
+		isNotificattionTriggered
+	} from '$lib/store';
 
 	import HomeHeader from '$lib/components/home/HomeHeader.svelte';
-	import { historicList } from '$lib/historic';
 	import HistoricData from '$lib/components/home/HistoricData.svelte';
+	import AppJobs from '$lib/jobs';
 
 	let waterQuantity: number;
 	let _waterObjective: number;
@@ -19,6 +25,11 @@
 	waterObjective.subscribe((value) => (_waterObjective = value));
 	breakProgress.subscribe((value) => (breakQuantity = value));
 	breakObjective.subscribe((value) => (_breakObjective = value));
+
+	if (!$isNotificattionTriggered) {
+		isNotificattionTriggered.set(true);
+		let notifications = new AppJobs();
+	}
 </script>
 
 <div>

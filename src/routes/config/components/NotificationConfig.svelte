@@ -1,17 +1,37 @@
-<script>
+<script lang="ts">
 	import '@fontsource/poppins/700.css';
 
-	import { automaticSuggestion } from '$lib/store';
+	import { automaticSuggestion, waterIndications } from '$lib/store';
+
+	let _waterSuggestion: string;
+
+	waterIndications.subscribe((value) => (_waterSuggestion = value.toString()));
 
 	function onSuggestionClicked() {
 		automaticSuggestion.update((value) => !value);
+	}
+
+	function updateSuggestion() {
+		const input = document.getElementById('water-suggestion') as HTMLInputElement | null;
+		const inputContet = input?.value;
+		if (inputContet != undefined) {
+			let newValue: number = parseFloat(inputContet);
+			waterIndications.set(newValue);
+		}
 	}
 </script>
 
 <ion-row class="notification-row">
 	<div class="text">Quantidade de água sugerida (litros)</div>
 	<div class="objective-data">
-		<ion-input type="number" class="custom" inputmode="decimal" value={0.2} />
+		<ion-input
+			type="number"
+			class="custom"
+			inputmode="decimal"
+			value={_waterSuggestion}
+			id="water-suggestion"
+			on:ionChange={() => updateSuggestion()}
+		/>
 	</div>
 </ion-row>
 <ion-row class="suggestion-row">
