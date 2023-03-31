@@ -1,15 +1,11 @@
 <script lang="ts">
 	import '@fontsource/poppins/700.css';
 
-	import { automaticSuggestion, waterIndications } from '$lib/store';
+	import { waterIndications } from '$lib/store';
 
 	let _waterSuggestion: string;
 
 	waterIndications.subscribe((value) => (_waterSuggestion = value.toString()));
-
-	function onSuggestionClicked() {
-		automaticSuggestion.update((value) => !value);
-	}
 
 	function updateSuggestion() {
 		const input = document.getElementById('water-suggestion') as HTMLInputElement | null;
@@ -34,15 +30,6 @@
 		/>
 	</div>
 </ion-row>
-<ion-row class="suggestion-row">
-	<div class="text">Sugestão automática</div>
-
-	<ion-toggle
-		enable-on-off-labels={true}
-		checked={$automaticSuggestion}
-		on:ionChange={onSuggestionClicked}
-	/>
-</ion-row>
 
 <style>
 	ion-input.custom {
@@ -58,12 +45,6 @@
 	ion-input {
 		display: contents;
 		text-align: center;
-	}
-
-	.suggestion-row {
-		justify-content: space-between;
-		margin-left: 7.9vw;
-		margin-right: 4.6vw;
 	}
 
 	.notification-row {

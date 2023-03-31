@@ -13,9 +13,8 @@ const finishHour = writable("22:20")
 
 const waterIndications = writable(0.2)
 
-const automaticSuggestion = writable(false)
 const isNotificattionTriggered = writable(false);
 
 const isWaterNotification = writable(true)
 
-export { waterProgress, waterObjective, breakObjective, breakProgress, startHour, finishHour, automaticSuggestion, isNotificattionTriggered, waterIndications, isWaterNotification }
+export { waterProgress, waterObjective, breakObjective, breakProgress, startHour, finishHour, isNotificattionTriggered, waterIndications, isWaterNotification }
