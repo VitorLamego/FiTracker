@@ -7,10 +7,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const appId = 'FiTracker2.ionic.io';
 const appName = 'FiTracker2';
-const server = process.argv.includes('-hmr') ? {
-  'url': process.env.IP,   // always have http:// in url
-  'cleartext': true
-} : {
+const server = {
   'url': process.env.IP,   // always have http:// in url
   'cleartext': true
 };
