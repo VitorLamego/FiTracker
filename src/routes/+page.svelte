@@ -10,11 +10,11 @@
 		breakObjective,
 		breakProgress,
 		isNotificattionTriggered
-	} from '$lib/store';
+	} from '$lib/store/store';
 
 	import HomeHeader from '$lib/components/home/HomeHeader.svelte';
 	import HistoricData from '$lib/components/home/HistoricData.svelte';
-	import AppJobs from '$lib/jobs';
+	import AppJobs from '$lib/services/jobs';
 
 	let waterQuantity: number;
 	let _waterObjective: number;

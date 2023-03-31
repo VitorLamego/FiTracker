@@ -2,7 +2,7 @@
 	import waterBottle from '$lib/images/water-bottle.svg';
 	import breakImage from '$lib/images/break.svg';
 
-	import { waterObjective, breakObjective } from '$lib/store';
+	import { waterObjective, breakObjective } from '$lib/store/store';
 
 	let _breakObjective: string;
 	let _waterObjective: string;

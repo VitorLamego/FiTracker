@@ -4,7 +4,7 @@
 	import waterBottle from '$lib/images/water-bottle.svg';
 	import breakImage from '$lib/images/break.svg';
 
-	import { historicList } from '$lib/historic';
+	import { historicList } from '$lib/store/historic';
 	import { onMount } from 'svelte';
 
 	let data: string;

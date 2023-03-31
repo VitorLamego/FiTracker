@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { startHour, finishHour } from '$lib/store';
+	import { startHour, finishHour } from '$lib/store/store';
 	import { imask } from '@imask/svelte';
 
 	const hourMask = {

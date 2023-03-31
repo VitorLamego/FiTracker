@@ -2,7 +2,7 @@
 	import '@fontsource/poppins/700.css';
 	import '@fontsource/poppins/600.css';
 
-	import { breakProgress } from '$lib/store';
+	import { breakProgress } from '$lib/store/store';
 </script>
 
 <ion-grid>

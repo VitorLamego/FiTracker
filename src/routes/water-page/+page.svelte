@@ -9,7 +9,7 @@
 	import HistoricContainer from '../../lib/components/objectives-page/HistoricContainer.svelte';
 	import Header from '$lib/components/objectives-page/Header.svelte';
 
-	import { waterProgress, waterObjective } from '$lib/store';
+	import { waterProgress, waterObjective } from '$lib/store/store';
 	import { WaterController } from './water-page';
 	import ActualProgress from '../../lib/components/objectives-page/ActualProgress.svelte';
 

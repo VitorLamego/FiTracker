@@ -4,7 +4,7 @@
 
 	import type { WaterController } from '../water-page';
 
-	import { waterProgress } from '$lib/store';
+	import { waterProgress } from '$lib/store/store';
 
 	export let actualProgress: number;
 	export let controller: WaterController;

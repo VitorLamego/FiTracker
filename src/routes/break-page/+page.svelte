@@ -4,7 +4,7 @@
 	import Header from '$lib/components/objectives-page/Header.svelte';
 	import PieChart from '$lib/components/objectives-page/PieChart.svelte';
 
-	import { breakObjective, breakProgress } from '$lib/store';
+	import { breakObjective, breakProgress } from '$lib/store/store';
 	import ActualProgress from '$lib/components/objectives-page/ActualProgress.svelte';
 	import QuantityButtons from './components/QuantityButtons.svelte';
 	import HistoricContainer from '$lib/components/objectives-page/HistoricContainer.svelte';

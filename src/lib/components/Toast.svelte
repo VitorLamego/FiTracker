@@ -1,8 +1,13 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { notifications } from '$lib/toastNotifications';
+	import { notifications } from '$lib/notification/toastNotifications';
 	import { goto } from '$app/navigation';
-	import { isWaterNotification, waterIndications, waterProgress, breakProgress } from '$lib/store';
+	import {
+		isWaterNotification,
+		waterIndications,
+		waterProgress,
+		breakProgress
+	} from '$lib/store/store';
 
 	const waterPage = () => {
 		goto('/water-page', { replaceState: true });

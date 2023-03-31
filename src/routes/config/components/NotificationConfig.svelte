@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '@fontsource/poppins/700.css';
 
-	import { waterIndications } from '$lib/store';
+	import { waterIndications } from '$lib/store/store';
 
 	let _waterSuggestion: string;
 

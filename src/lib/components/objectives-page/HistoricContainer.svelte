@@ -1,6 +1,6 @@
 <script lang="ts">
 	import HistoricCard from '../../../routes/water-page/components/HistoricCard.svelte';
-	import { historicList } from '$lib/historic';
+	import { historicList } from '$lib/store/historic';
 	import HistoricCardBreak from '../../../routes/break-page/components/HistoricCardBreak.svelte';
 
 	export let isWaterHistoric: boolean;

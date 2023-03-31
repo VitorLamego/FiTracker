@@ -1,8 +1,8 @@
 import { CronJob } from "cron";
 
-import { toast } from '$lib/toastNotifications';
+import { toast } from '$lib/notification/toastNotifications';
 
-import { isWaterNotification, waterIndications, startHour, finishHour } from "./store";
+import { isWaterNotification, waterIndications, startHour, finishHour } from "../store/store";
 
 
 class AppJobs {
