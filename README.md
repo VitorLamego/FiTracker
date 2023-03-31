@@ -9,6 +9,7 @@ Você pode rodar o app tanto em um dispositivo iOS, quanto em um dispositivo And
 Para execução do aplicativo, abra um terminal na raíz do projeto clonado e digite o seguinte comando:
 
 ```bash
+npm run build
 npx cap sync
 npm run dev
 ```
